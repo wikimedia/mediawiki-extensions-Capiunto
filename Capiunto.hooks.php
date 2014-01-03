@@ -3,6 +3,8 @@ namespace Capiunto;
 
 use OutputPage;
 use Skin;
+use RecursiveIteratorIterator;
+use RecursiveDirectoryIterator;
 
 /**
  * File defining the hook handlers for the Capiunto extension.
@@ -49,8 +51,8 @@ final class CapiuntoHooks {
 			return true;
 		}
 
-		$extraLibraries['mw.capiunto'] = '\Capiunto\LuaLibrary';
-		$extraLibraries['mw.capiunto_htmlBuilder'] = '\Capiunto\LuaLibrary';
+		$extraLibraries['mw.capiunto.Infobox'] = '\Capiunto\LuaLibrary';
+		$extraLibraries['mw.capiunto.Infobox._render'] = '\Capiunto\LuaLibrary';
 
 		return true;
 	}
@@ -65,12 +67,8 @@ final class CapiuntoHooks {
 	 * @return bool
 	 */
 	public static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
-		wfProfileIn( __METHOD__ );
-
-		// @FIXME: Find a way to do this conditionally
+		// @FIXME: Find a way to do this conditionally from Lua
 		$out->addModules( 'capiunto.infobox.main' );
-
-		wfProfileOut( __METHOD__ );
 		return true;
 	}
 
