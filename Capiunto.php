@@ -19,6 +19,7 @@ $wgExtensionCredits['parserhook']['Capiunto'] = array(
 	'descriptionmsg' => 'capiunto-desc',
 );
 
+$wgMessagesDirs['Capiunto'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['Capiunto'] = __DIR__ . '/Capiunto.i18n.php';
 
 $wgAutoloadClasses['Capiunto\CapiuntoHooks']	= __DIR__ . '/Capiunto.hooks.php';
