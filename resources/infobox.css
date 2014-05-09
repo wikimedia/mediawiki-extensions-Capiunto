@@ -17,6 +17,17 @@
     font-size: 88%;
     line-height: 1.5em;
 }
+.mw-capiunto-infobox-subbox {
+	padding: 0;
+	border:none;
+	margin: -3px;
+	width: auto;
+	min-width: 100%;
+	font-size: 100%;
+	clear: none;
+	float: none;
+	background-color: transparent;
+}
 .mw-capiunto-infobox caption {
     font-size: 125%;
     font-weight: bold;
@@ -24,45 +35,4 @@
 .mw-capiunto-infobox td,
 .mw-capiunto-infobox th {
     vertical-align: top;
-}
-.mw-capiunto-infobox.bordered {
-    border-collapse: collapse;
-}
-.mw-capiunto-infobox.bordered td,
-.mw-capiunto-infobox.bordered th {
-    border: 1px solid #aaa;
-}
-.mw-capiunto-infobox.bordered .borderless td,
-.mw-capiunto-infobox.bordered .borderless th {
-    border: 0;
-}
- 
-.mw-capiunto-infobox.sisterproject {
-    width: 20em;
-    font-size: 90%;
-}
- 
-.mw-capiunto-infobox.standard-talk {
-    border: 1px solid #c0c090;
-    background-color: #f8eaba;
-}
-.mw-capiunto-infobox.standard-talk.bordered td,
-.mw-capiunto-infobox.standard-talk.bordered th {
-    border: 1px solid #c0c090;
-}
- 
-/* styles for bordered infobox with merged rows */
-.mw-capiunto-infobox.bordered .mergedtoprow td,
-.mw-capiunto-infobox.bordered .mergedtoprow th {
-    border: 0;
-    border-top: 1px solid #aaa;
-    /* @noflip */
-    border-right: 1px solid #aaa;
-}
- 
-.mw-capiunto-infobox.bordered .mergedrow td,
-.mw-capiunto-infobox.bordered .mergedrow th {
-    border: 0;
-    /* @noflip */
-    border-right: 1px solid #aaa;
 }

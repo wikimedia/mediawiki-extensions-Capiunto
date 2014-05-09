@@ -22,8 +22,9 @@ $wgExtensionCredits['parserhook']['Capiunto'] = array(
 $wgMessagesDirs['Capiunto'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['Capiunto'] = __DIR__ . '/Capiunto.i18n.php';
 
-$wgAutoloadClasses['Capiunto\CapiuntoHooks']	= __DIR__ . '/Capiunto.hooks.php';
-$wgAutoloadClasses['Capiunto\LuaLibrary']		= __DIR__ . '/includes/LuaLibrary.php';
+$wgAutoloadClasses['Capiunto\CapiuntoHooks']		= __DIR__ . '/Capiunto.hooks.php';
+$wgAutoloadClasses['Capiunto\LuaLibrary']					= __DIR__ . '/includes/LuaLibrary.php';
+$wgAutoloadClasses['Capiunto\Test\InfoboxModuleTest']		= __DIR__ . '/tests/phpunit/includes/lua/InfoboxTest.php';
 
 $wgHooks['UnitTestsList'][] 				= '\Capiunto\CapiuntoHooks::registerUnitTests';
 # XXX: Rather use ScribuntoExternalLibraryPaths ?
