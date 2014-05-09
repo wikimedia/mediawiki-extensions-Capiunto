@@ -1,6 +1,7 @@
 <?php
 
 namespace Capiunto\Test;
+use Title;
 
 /**
  * A basic Infobox output test
@@ -18,13 +19,14 @@ class BasicInfobox extends \Scribunto_LuaEngineTestBase {
 
 	public function testOutput() {
 		$engine = $this->getEngine();
-		$interpreter = $engine->getInterpreter();
+		$frame = $engine->getParser()->getPreprocessor()->newFrame();
 
-		$lua = file_get_contents( __DIR__ . '/BasicTest.lua' );
+		$this->extraModules['Module:BasicTest'] = file_get_contents( __DIR__ . '/BasicTest.lua' );
 
-		list( $box ) = $interpreter->callFunction(
-			$interpreter->loadString( $lua, 'Basic infobox integration test' )
-		);
+		$title = Title::makeTitle( NS_MODULE, 'BasicTest' );
+		$module = $engine->fetchModuleFromParser( $title );
+
+		$box = $module->invoke( 'run', $frame->newChild() );
 
 		$this->assertValidHtmlSnippet( $box );
 

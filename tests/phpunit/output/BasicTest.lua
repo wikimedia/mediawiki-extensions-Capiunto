@@ -1,10 +1,16 @@
-local box = mw.capiunto.Infobox.create( {
-	name = 'Foo bar',
-	top = 'Text in uppermost cell of infobox',
-} )
+local p = {}
 
-box
-	:addSubHeader( 'Subheader of the infobox' )
-	:addSubHeader( 'Second subheader of the infobox' )
+p.run = function()
+	local box = mw.capiunto.Infobox.create( {
+		name = 'Foo bar',
+		top = 'Text in uppermost cell of infobox',
+	} )
 
-return tostring( box:getHtml() )
+	box
+		:addSubHeader( 'Subheader of the infobox' )
+		:addSubHeader( 'Second subheader of the infobox' )
+
+	return tostring( box:getHtml() )
+end
+
+return p
