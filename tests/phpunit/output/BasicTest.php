@@ -21,9 +21,9 @@ class BasicInfobox extends \Scribunto_LuaEngineTestBase {
 		$engine = $this->getEngine();
 		$frame = $engine->getParser()->getPreprocessor()->newFrame();
 
-		$this->extraModules['Module:BasicTest'] = file_get_contents( __DIR__ . '/BasicTest.lua' );
-
 		$title = Title::makeTitle( NS_MODULE, 'BasicTest' );
+		$this->extraModules[ $title->getPrefixedDBkey() ] = file_get_contents( __DIR__ . '/BasicTest.lua' );
+
 		$module = $engine->fetchModuleFromParser( $title );
 
 		$box = $module->invoke( 'run', $frame->newChild() );

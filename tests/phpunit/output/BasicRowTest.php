@@ -21,9 +21,9 @@ class RowInfobox extends \Scribunto_LuaEngineTestBase {
 		$engine = $this->getEngine();
 		$frame = $engine->getParser()->getPreprocessor()->newFrame();
 
-		$this->extraModules['Module:RowInfobox'] = file_get_contents( __DIR__ . '/BasicRowTest.lua' );
-
 		$title = Title::makeTitle( NS_MODULE, 'RowInfobox' );
+		$this->extraModules[ $title->getPrefixedDBkey() ] = file_get_contents( __DIR__ . '/BasicRowTest.lua' );
+
 		$module = $engine->fetchModuleFromParser( $title );
 
 		$box = $module->invoke( 'run', $frame->newChild() );
