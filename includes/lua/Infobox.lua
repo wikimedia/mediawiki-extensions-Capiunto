@@ -25,13 +25,13 @@ end
 
 local function verifyStringNumNil( val, name )
 	if val ~= nil and type( val ) ~= 'string' and type( val ) ~= 'number' then
-		error( name .. ' must be either of type string, number or nil' )
+		error( name .. ' must be either of type string, number or nil', 3 )
 	end
 end
 
 local function verifyStringNum( val, name )
 	if type( val ) ~= 'string' and type( val ) ~= 'number' then
-		error( name .. ' must be either of type string or number' )
+		error( name .. ' must be either of type string or number', 3 )
 	end
 end
 
@@ -146,7 +146,7 @@ function methodtable.addWikitext( t, text )
 
 	if type( text ) ~= 'string' and type( text ) ~= 'number' then
 		-- Tables have already been converted above, so we don't have to worry about them here.
-		error( 'text must be either of type string, number or table' )
+		error( 'text must be either of type string, number or table', 2 )
 	end
 
 	t.args.rows = t.args.rows or {}
@@ -184,7 +184,7 @@ end
 function infobox.create( options )
 	local function verifyStringNumNil( val, name )
 		if val ~= nil and type( val ) ~= 'string' and type( val ) ~= 'number' then
-			error( 'Option ' .. name .. ' must be either of type string, number or nil' )
+			error( 'Option ' .. name .. ' must be either of type string, number or nil', 3 )
 		end
 
 		return val
