@@ -277,14 +277,4 @@ function render.renderRows( html, args )
 	end
 end
 
-mw_interface = nil
-
--- Register this module in the "mw.capiunto" global
-mw = mw or {}
-mw.capiunto = mw.capiunto or {}
-mw.capiunto.Infobox = mw.capiunto.Infobox or {}
-mw.capiunto.Infobox._render = render
-
-package.loaded['mw.capiunto.Infobox._render'] = render
-
 return render

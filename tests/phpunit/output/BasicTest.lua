@@ -1,7 +1,8 @@
 local p = {}
 
 p.run = function()
-	local box = mw.capiunto.Infobox.create( {
+	local capiunto = require 'capiunto'
+	local box = capiunto.create( {
 		name = 'Foo bar',
 		top = 'Text in uppermost cell of infobox',
 	} )

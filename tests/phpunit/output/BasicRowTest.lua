@@ -1,7 +1,8 @@
 local p = {}
 
 p.run = function()
-	local box = mw.capiunto.Infobox.create( {
+	local capiunto = require 'capiunto'
+	local box = capiunto.create( {
 		title = 'Infobox Data Test!'
 	} )
 	box

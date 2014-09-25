@@ -15,10 +15,15 @@ class LuaLibrary extends Scribunto_LuaLibraryBase {
 
 	/**
 	 * Register the library
+	 *
+	 * @return array
 	 */
 	public function register() {
-		$this->getEngine()->registerInterface( __DIR__ . '/lua/Infobox.lua', array(), array() );
-		$this->getEngine()->registerInterface( __DIR__ . '/lua/InfoboxRender.lua', array(), array() );
+		return $this->getEngine()->registerInterface(
+			__DIR__ . '/lua/Infobox.lua',
+			array(),
+			array()
+		);
 	}
 
 }

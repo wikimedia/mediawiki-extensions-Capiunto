@@ -4,7 +4,7 @@ namespace Capiunto\Test;
 use Scribunto_LuaEngineTestBase;
 
 /**
- * Tests for mw.capiunto.Infobox
+ * Tests for capiunto
  *
  * @license GNU GPL v2+
  *

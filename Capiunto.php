@@ -23,14 +23,14 @@ $wgExtensionCredits['other'][] = array(
 $wgMessagesDirs['Capiunto'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['Capiunto'] = __DIR__ . '/Capiunto.i18n.php';
 
-$wgAutoloadClasses['Capiunto\CapiuntoHooks']		= __DIR__ . '/Capiunto.hooks.php';
+$wgAutoloadClasses['Capiunto\Hooks']		= __DIR__ . '/includes/Hooks.php';
 $wgAutoloadClasses['Capiunto\LuaLibrary']					= __DIR__ . '/includes/LuaLibrary.php';
 $wgAutoloadClasses['Capiunto\Test\InfoboxModuleTest']		= __DIR__ . '/tests/phpunit/includes/lua/InfoboxTest.php';
 
-$wgHooks['UnitTestsList'][] 				= '\Capiunto\CapiuntoHooks::registerUnitTests';
-# XXX: Rather use ScribuntoExternalLibraryPaths ?
-$wgHooks['ScribuntoExternalLibraries'][] 	= '\Capiunto\CapiuntoHooks::registerScribuntoLibraries';
-$wgHooks['BeforePageDisplay'][]				= '\Capiunto\CapiuntoHooks::onBeforePageDisplay';
+$wgHooks['UnitTestsList'][] 				= '\Capiunto\Hooks::registerUnitTests';
+$wgHooks['ScribuntoExternalLibraries'][] 	= '\Capiunto\Hooks::registerScribuntoLibraries';
+$wgHooks['ScribuntoExternalLibraryPaths'][] 	= '\Capiunto\Hooks::registerScribuntoExternalLibraryPaths';
+$wgHooks['BeforePageDisplay'][]				= '\Capiunto\Hooks::onBeforePageDisplay';
 
 $commonModuleInfo = array(
 	'localBasePath' => __DIR__ . '/resources',

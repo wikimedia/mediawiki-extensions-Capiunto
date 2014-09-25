@@ -2,7 +2,8 @@ Capiunto provides flexible Infobox functionality for Scribunto.
 
 With Capiunto Lua code to create a basic Infobox might look like this:
 <source lang="lua">
-mw.capiunto.Infobox.create( {
+local capiunto = require 'capiunto'
+capiunto.create( {
 	title = 'Title of the Infobox'
 } )
 :addRow( 'A label', 'some data' )
@@ -10,14 +11,14 @@ mw.capiunto.Infobox.create( {
 :addRow( 'Another label', 'more data' )
 </source>
 
-After creating an Infobox using the [[#mw.capiunto.Infobox.create|create]] method, content can be added in the order it will appear on the page using the various add* functions explained below. Calls
+After creating an Infobox using the [[#capiunto.create|create]] method, content can be added in the order it will appear on the page using the various add* functions explained below. Calls
 
-To convert the Infobox metatable to html either call [[#mw.capiunto.Infobox:getHtml|infobox:getHtml]] (which will return a mw.html instance with the infobox) or Lua's tostring() can be used. Also just returning the Infobox metatable is ok as Scribunto will automatically convert it to a string in order to display it on the wiki page.
+To convert the Infobox metatable to html either call [[#capiunto:getHtml|infobox:getHtml]] (which will return a mw.html instance with the infobox) or Lua's tostring() can be used. Also just returning the Infobox metatable is ok as Scribunto will automatically convert it to a string in order to display it on the wiki page.
 
-Functions documented as <code>mw.capiunto.Infobox.name</code> are available on the global <code>mw.capiunto.Infobox</code> table; functions documented as <code>mw.capiunto.Infobox:name</code> are methods of an mw.capiunto.Infobox object (see [[#mw.capiunto.Infobox.create|<code>mw.capiunto.Infobox.create</code>]]).
+Functions documented as <code>capiunto.name</code> are available on the global <code>capiunto</code> table; functions documented as <code>capiunto:name</code> are methods of an capiunto object (see [[#capiunto.create|<code>capiunto.create</code>]]).
 
-== mw.capiunto.Infobox.create ==
-<code>mw.capiunto.Infobox.create( options )</code>
+== capiunto.create ==
+<code>capiunto.create( options )</code>
 
 Creates a new Infobox object, with the given <code>options</code>. Supported <code>options</code> are:
 
@@ -51,53 +52,57 @@ Creates a new Infobox object, with the given <code>options</code>. Supported <co
 *<code>options.labelStyle</code>: Applies to all label cells.
 *<code>options.dataStyle</code>: Applies to all data cells.
 
-== mw.capiunto.Infobox:getHtml ==
+== capiunto:getHtml ==
 <code>infobox:getHtml()</code><br>
 
 Returns a mw.html object holding the html the Infobox consists of. This can easily be converted into a string using tostring().
 
 Example:
 <source lang="lua">
-local infobx = mw.capiunto.Infobox.create( {
+local capiunto = require 'capiunto'
+local infobx = capiunto.create( {
 	-- ...
 } )
 local html = tostring( infobox:getHtml() )
 </source>
 
-== mw.capiunto.Infobox:addSubHeader ==
+== capiunto:addSubHeader ==
 <code>infobox:addSubHeader( text )</code><br>
 <code>infobox:addSubHeader( text, class )</code><br>
 <code>infobox:addSubHeader( text, class, style )</code><br>
 
 Adds a subheader, which will show at the top of the infobox, below the title and top text, with the given <code>text</code> to the Infobox. Optionally it's possible to pass raw CSS in the <code>style</code> parameter and a CSS class in the <code>class</code> one.
 
-== mw.capiunto.Infobox:addImage ==
+== capiunto:addImage ==
 <code>infobox:addImage( image )</code><br>
 <code>infobox:addImage( image, caption )</code><br>
 <code>infobox:addImage( image, caption, class )</code><br>
 
 Adds an <code>image</code> (passed as wikitext like <nowiki>[[File:Foo.png]]</nowiki>) to the Infobox. Optionally a <code>caption</code> can be added after the image. Also a CSS <code>class</code> can be passed which will be added to the table row wrapping the image.
 
-== mw.capiunto.Infobox:addRow ==
+== capiunto:addRow ==
 <code>infobox:addRow( label, data )</code><br>
 <code>infobox:addRow( label, data, class )</code><br>
 <code>infobox:addRow( label, data, class, rowClass )</code><br>
 
 Adds a data row to the Infobox with the given <code>label</code> (can also be left empty) and <code>data</code>. Optionally a <code>rowClass</code> which will apply to the whole table row and a <code>class</code> which will only apply to data can be added.
 
-Please note that the rows added with this function, [[#mw.capiunto.Infobox:addWikitext|<code>mw.capiunto.Infobox:addWikitext</code>]] and [[#mw.capiunto.Infobox:addHeader|<code>mw.capiunto.Infobox:addHeader</code>]] will be rendered in the order they have been added to the Infobox.
+Please note that the rows added with this function, [[#capiunto:addWikitext|<code>capiunto:addWikitext</code>]] and [[#capiunto:addHeader|<code>capiunto:addHeader</code>]] will be rendered in the order they have been added to the Infobox.
 
-== mw.capiunto.Infobox:addHeader ==
+== capiunto:addHeader ==
 <code>infobox:addHeader( header )</code><br>
 <code>infobox:addHeader( header, class )</code><br>
 
 Adds a header row to the Infobox with the given text (<code>header</code>). Optionally a <code>class</code> which will apply to header can be added.
 
-Please note that the rows added with this function, [[#mw.capiunto.Infobox:addWikitext|<code>mw.capiunto.Infobox:addWikitext</code>]] and [[#mw.capiunto.Infobox:addRow|<code>mw.capiunto.Infobox:addRow</code>]] will be rendered in the order they have been added to the Infobox.
+Please note that the rows added with this function, [[#capiunto:addWikitext|<code>capiunto:addWikitext</code>]] and [[#capiunto:addRow|<code>capiunto:addRow</code>]] will be rendered in the order they have been added to the Infobox.
 
-== mw.capiunto.Infobox:addWikitext ==
+== capiunto:addWikitext ==
 <code>infobox:addWikitext( text )</code><br>
 
-Adds arbitrary wikitext to the Infobox. This can eg. be a child <code>mw.capiunto.Infobox</code> instance which has been casted to string by using Lua's <code>tostring()</code>.
+Adds arbitrary wikitext to the Infobox. This can eg. be a child <code>capiunto</code> instance which has been casted to string by using Lua's <code>tostring()</code>.
 
-Please note that the rows added with this function, [[#mw.capiunto.Infobox:addHeader|<code>mw.capiunto.Infobox:addHeader</code>]] and [[#mw.capiunto.Infobox:addRow|<code>mw.capiunto.Infobox:addRow</code>]] will be rendered in the order they have been added to the Infobox.
+Please note that the rows added with this function, [[#capiunto:addHeader|<code>capiunto:addHeader</code>]] and [[#capiunto:addRow|<code>capiunto:addRow</code>]] will be rendered in the order they have been added to the Infobox.
+
+== CapiuntoInfoboxRender ==
+CapiuntoInfoboxRender is a module internally used for the rendering the Infobox. It is not supposed to be used outside of Capiunto as its interfaces can change at any time.

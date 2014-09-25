@@ -13,7 +13,7 @@ use RecursiveDirectoryIterator;
  *
  * @author Marius Hoch < hoo@online.de >
  */
-final class CapiuntoHooks {
+class Hooks {
 	/**
 	 * Hook to add PHPUnit test cases.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UnitTestsList
@@ -24,7 +24,7 @@ final class CapiuntoHooks {
 	 */
 	public static function registerUnitTests( array &$files ) {
 		// @codeCoverageIgnoreStart
-		$directoryIterator = new RecursiveDirectoryIterator( __DIR__ . '/tests/phpunit/' );
+		$directoryIterator = new RecursiveDirectoryIterator( __DIR__ . '/../tests/phpunit/' );
 
 		/**
 		 * @var SplFileInfo $fileInfo
@@ -51,8 +51,28 @@ final class CapiuntoHooks {
 			return true;
 		}
 
-		$extraLibraries['mw.capiunto.Infobox'] = '\Capiunto\LuaLibrary';
-		$extraLibraries['mw.capiunto.Infobox._render'] = '\Capiunto\LuaLibrary';
+		$extraLibraries['capiunto'] = array(
+			'class' => '\Capiunto\LuaLibrary',
+			'deferLoad' => true
+		);
+
+		return true;
+	}
+
+	/**
+	 * External Lua library paths for Scribunto
+	 *
+	 * @param string $engine
+	 * @param array $extraLibraryPaths
+	 * @return bool
+	 */
+	public static function registerScribuntoExternalLibraryPaths( $engine, array &$extraLibraryPaths ) {
+		if ( $engine !== 'lua' ) {
+			return true;
+		}
+
+		// Path containing pure Lua libraries that don't need to interact with PHP
+		$extraLibraryPaths[] = __DIR__ . '/lua/pure';
 
 		return true;
 	}

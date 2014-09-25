@@ -7,10 +7,10 @@
 
 local testframework = require 'Module:TestFramework'
 
-require 'mw.capiunto.Infobox'
+local capiunto = require 'capiunto'
 
 local function getNewEmpty()
-	return mw.capiunto.Infobox.create()
+	return capiunto.create()
 end
 
 local function getStringNumNilError( name )
@@ -48,11 +48,11 @@ local function addRow( label, data, class, rowClass )
 end
 
 local function createType( val )
-	return type( mw.capiunto.Infobox.create( { bodyClass = val  } ) )
+	return type( capiunto.create( { bodyClass = val  } ) )
 end
 
 local function getHtmlType( child )
-	local box = mw.capiunto.Infobox.create( { isChild = child } )
+	local box = capiunto.create( { isChild = child } )
 
 	return type( box:getHtml() )
 end
@@ -61,7 +61,7 @@ local function getHtmlChild( options )
 	options = options or {}
 	options.isChild = true
 
-	local box = mw.capiunto.Infobox.create( options )
+	local box = capiunto.create( options )
 
 	return box:getHtml()
 end
@@ -69,7 +69,7 @@ end
 -- Tests
 
 local function testExists()
-	return type( mw.capiunto.Infobox )
+	return type( capiunto )
 end
 
 local function testCreate()
@@ -115,150 +115,150 @@ end
 
 -- Tests
 local tests = {
-	{ name = 'mw.capiunto.Infobox exists', func = testExists, type='ToString',
+	{ name = 'capiunto exists', func = testExists, type='ToString',
 	  expect = { 'table' }
 	},
-	{ name = 'mw.capiunto.Infobox.create', func = testCreate, type='ToString',
+	{ name = 'capiunto.create', func = testCreate, type='ToString',
 	  expect = { 'table' }
 	},
-	{ name = 'mw.capiunto.Infobox.create (validation 1)', func = createType, type='ToString',
+	{ name = 'capiunto.create (validation 1)', func = createType, type='ToString',
 	  args = { {} },
 	  expect = 'Option bodyClass must be either of type string, number or nil'
 	},
-	{ name = 'mw.capiunto.Infobox.create (validation 2)', func = createType, type='ToString',
+	{ name = 'capiunto.create (validation 2)', func = createType, type='ToString',
 	  args = { function() end },
 	  expect = 'Option bodyClass must be either of type string, number or nil'
 	},
-	{ name = 'mw.capiunto.Infobox.create (validation 3)', func = createType, type='ToString',
+	{ name = 'capiunto.create (validation 3)', func = createType, type='ToString',
 	  args = { nil },
 	  expect = { 'table' }
 	},
-	{ name = 'mw.capiunto.Infobox.create (validation 4)', func = createType, type='ToString',
+	{ name = 'capiunto.create (validation 4)', func = createType, type='ToString',
 	  args = { 123 },
 	  expect = { 'table' }
 	},
-	{ name = 'mw.capiunto.Infobox.create (validation 5)', func = createType, type='ToString',
+	{ name = 'capiunto.create (validation 5)', func = createType, type='ToString',
 	  args = { 'foo' },
 	  expect = { 'table' }
 	},
-	{ name = 'mw.capiunto.Infobox.getHtml (type)', func = getHtmlType, type='ToString',
+	{ name = 'capiunto.getHtml (type)', func = getHtmlType, type='ToString',
 	  args = { false },
 	  expect = { 'table' }
 	},
-	{ name = 'mw.capiunto.Infobox.getHtml (type - child box)', func = getHtmlType, type='ToString',
+	{ name = 'capiunto.getHtml (type - child box)', func = getHtmlType, type='ToString',
 	  args = { true },
 	  expect = { 'table' }
 	},
-	{ name = 'mw.capiunto.Infobox.getHtml (child box - empty)', func = getHtmlChild, type='ToString',
+	{ name = 'capiunto.getHtml (child box - empty)', func = getHtmlChild, type='ToString',
 	  expect = { '' }
 	},
-	{ name = 'mw.capiunto.Infobox.getHtml (child box - title)', func = getHtmlChild, type='ToString',
+	{ name = 'capiunto.getHtml (child box - title)', func = getHtmlChild, type='ToString',
 	  args = { { title = 'Lalalala' } },
 	  expect = { 'Lalalala' }
 	},
-	{ name = 'mw.capiunto.Infobox.addSubHeader 1', func = addSubHeader,
+	{ name = 'capiunto.addSubHeader 1', func = addSubHeader,
 	  args = { 'foo' },
 	  expect = { { { text = 'foo', style = nil, class = nil } } }
 	},
-	{ name = 'mw.capiunto.Infobox.addSubHeader 2', func = addSubHeader,
+	{ name = 'capiunto.addSubHeader 2', func = addSubHeader,
 	  args = { 'foo', 'cd', 'ab' },
 	  expect = { { { text = 'foo', style = 'ab', class = 'cd' } } }
 	},
-	{ name = 'mw.capiunto.Infobox.addSubHeader (invalid input 1)', func = addSubHeader,
+	{ name = 'capiunto.addSubHeader (invalid input 1)', func = addSubHeader,
 	  args = {},
 	  expect = getStringNumError( 'text' )
 	},
-	{ name = 'mw.capiunto.Infobox.addSubHeader (invalid input 2)', func = addSubHeader,
+	{ name = 'capiunto.addSubHeader (invalid input 2)', func = addSubHeader,
 	  args = { {} },
 	  expect = getStringNumError( 'text' )
 	},
-	{ name = 'mw.capiunto.Infobox.addSubHeader (invalid input 3)', func = addSubHeader,
+	{ name = 'capiunto.addSubHeader (invalid input 3)', func = addSubHeader,
 	  args = { 'whatever', {} },
 	  expect = getStringNumNilError( 'class' )
 	},
-	{ name = 'mw.capiunto.Infobox.addSubHeader (invalid input 4)', func = addSubHeader,
+	{ name = 'capiunto.addSubHeader (invalid input 4)', func = addSubHeader,
 	  args = { 'whatever', nil, function() end },
 	  expect = getStringNumNilError( 'style' )
 	},
-	{ name = 'mw.capiunto.Infobox.addImage 1', func = addImage,
+	{ name = 'capiunto.addImage 1', func = addImage,
 	  args = { 'foo' },
 	  expect = { { { image = 'foo', caption = nil, class = nil } } }
 	},
-	{ name = 'mw.capiunto.Infobox.addImage 2', func = addImage,
+	{ name = 'capiunto.addImage 2', func = addImage,
 	  args = { 'foo', 'ab', 'cd' },
 	  expect = { { { image = 'foo', caption = 'ab', class = 'cd' } } }
 	},
-	{ name = 'mw.capiunto.Infobox.addImage (invalid input 1)', func = addImage,
+	{ name = 'capiunto.addImage (invalid input 1)', func = addImage,
 	  expect = getStringNumError( 'image' )
 	},
-	{ name = 'mw.capiunto.Infobox.addImage (invalid input 2)', func = addImage,
+	{ name = 'capiunto.addImage (invalid input 2)', func = addImage,
 	  args = { {} },
 	  expect = getStringNumError( 'image' )
 	},
-	{ name = 'mw.capiunto.Infobox.addImage (invalid input 3)', func = addImage,
+	{ name = 'capiunto.addImage (invalid input 3)', func = addImage,
 	  args = { 'a', {}, 'da' },
 	  expect = getStringNumNilError( 'caption' )
 	},
-	{ name = 'mw.capiunto.Infobox.addImage (invalid input 4)', func = addImage,
+	{ name = 'capiunto.addImage (invalid input 4)', func = addImage,
 	  args = { 'what', nil, {} },
 	  expect = getStringNumNilError( 'class' )
 	},
-	{ name = 'mw.capiunto.Infobox.addHeader (invalid input 1)', func = addHeader,
+	{ name = 'capiunto.addHeader (invalid input 1)', func = addHeader,
 	  expect = getStringNumError( 'header' )
 	},
-	{ name = 'mw.capiunto.Infobox.addHeader (invalid input 3)', func = addHeader,
+	{ name = 'capiunto.addHeader (invalid input 3)', func = addHeader,
 	  args = { {} },
 	  expect = getStringNumError( 'header' )
 	},
-	{ name = 'mw.capiunto.Infobox.addHeader (invalid input 3)', func = addHeader,
+	{ name = 'capiunto.addHeader (invalid input 3)', func = addHeader,
 	  args = { 'foo', function() end },
 	  expect = getStringNumNilError( 'class' )
 	},
-	{ name = 'mw.capiunto.Infobox.addRow (no label)', func = addRow,
+	{ name = 'capiunto.addRow (no label)', func = addRow,
 	  args = { nil, 'foo' },
 	  expect = { { { data = 'foo' } } }
 	},
-	{ name = 'mw.capiunto.Infobox.addRow (invalid input 1)', func = addRow,
+	{ name = 'capiunto.addRow (invalid input 1)', func = addRow,
 	  expect = getStringNumError( 'data' )
 	},
-	{ name = 'mw.capiunto.Infobox.addRow (invalid input 2)', func = addRow,
+	{ name = 'capiunto.addRow (invalid input 2)', func = addRow,
 	  args = { {}, 'a' },
 	  expect = getStringNumNilError( 'label' )
 	},
-	{ name = 'mw.capiunto.Infobox.addRow (invalid input 3)', func = addRow,
+	{ name = 'capiunto.addRow (invalid input 3)', func = addRow,
 	  args = { nil, 'a', {} },
 	  expect = getStringNumNilError( 'class' )
 	},
-	{ name = 'mw.capiunto.Infobox.addRow (invalid input 4)', func = addRow,
+	{ name = 'capiunto.addRow (invalid input 4)', func = addRow,
 	  args = { nil, 'a', nil, function() end },
 	  expect = getStringNumNilError( 'rowClass' )
 	},
-	{ name = 'mw.capiunto.Infobox.addWikitext (invalid input 1)', func = addWikitext,
+	{ name = 'capiunto.addWikitext (invalid input 1)', func = addWikitext,
 	  expect = 'text must be either of type string, number or table'
 	},
-	{ name = 'mw.capiunto.Infobox.addWikitext (invalid input 2)', func = addWikitext,
+	{ name = 'capiunto.addWikitext (invalid input 2)', func = addWikitext,
 	  args = { function() end },
 	  expect = 'text must be either of type string, number or table'
 	},
-	{ name = 'mw.capiunto.Infobox.addWikitext (table)', func = addWikitext,
+	{ name = 'capiunto.addWikitext (table)', func = addWikitext,
 	  args = { stringTable },
 	  expect = { { { wikitext = 'called proper tostring' } } }
 	},
-	{ name = 'mw.capiunto.Infobox.addSubHeader', func = testAddSubHeader,
+	{ name = 'capiunto.addSubHeader', func = testAddSubHeader,
 	  expect = { {
 		{ text = 'Subheader' },
 		{ text = 'woo', style = 'hoo' },
 		{ text = 'abc', class = 'def' },
 	  } }
 	},
-	{ name = 'mw.capiunto.Infobox.addImage', func = testAddImage,
+	{ name = 'capiunto.addImage', func = testAddImage,
 	  expect = { {
 		{ image = '[[File:Foo]]' },
 		{ image = 'woo', caption = 'hoo' },
 		{ image = 'abc', class = 'def' },
 	  } }
 	},
-	{ name = 'mw.capiunto.Infobox.addRow/addHeader/addWikitext', func = testAddRowAddHeaderAddWikitext,
+	{ name = 'capiunto.addRow/addHeader/addWikitext', func = testAddRowAddHeaderAddWikitext,
 	  expect = { {
 		{ header = 'Header 1' },
 		{ data = '#1 row->data', label = '#1 row->label' },

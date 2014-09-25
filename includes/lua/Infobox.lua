@@ -52,7 +52,7 @@ end
 function methodtable.getHtml( t )
 	local html = mw.html.create( '' )
 	local args = t.args
-	local render = mw.capiunto.Infobox._render
+	local render = require( 'CapiuntoInfoboxRender' )
 
 	html = render.renderWrapper( html, args )
 
