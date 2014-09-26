@@ -25,7 +25,6 @@ function render.renderWrapper( html, args )
 			:tag( 'table' )
 			:addClass( 'mw-capiunto-infobox' )
 			:attr( 'cellspacing', 3 )
-			:css( 'border-spacing', '3px' )
 
 		if args.bodyClass then
 			table
@@ -35,9 +34,6 @@ function render.renderWrapper( html, args )
 		if args.isSubbox then
 			table
 				:addClass( 'mw-capiunto-infobox-subbox' )
-		else
-			table
-				:css( 'width', '22em' )
 		end
 
 		if args.bodyStyle then
@@ -54,7 +50,7 @@ function render.renderWrapper( html, args )
 	end
 end
 
--- Adds a header to html
+-- Adds a table header to html
 --
 -- @param html
 -- @param args
@@ -64,7 +60,7 @@ function render.renderHeader( html, args, header, class )
 	local th = html:tag( 'tr' )
 		:tag( 'th' )
 			:attr( 'colspan', 2 )
-			:css( 'text-align', 'center' )
+			:addClass( 'mw-capiunto-infobox-header' )
 			:wikitext( header )
 
 	if class then
@@ -92,7 +88,7 @@ function render.renderRow( html, args, row )
 	if row.label then
 		local th = tr:tag( 'th' )
 			:attr( 'scope', 'row' )
-			:css( 'text-align', 'left' )
+			:addClass( 'mw-capiunto-infobox-label' )
 			:wikitext( row.label )
 
 		if args.labelStyle then
@@ -104,7 +100,7 @@ function render.renderRow( html, args, row )
 	if not row.label then
 		dataCell
 			:attr( 'colspan', 2 )
-			:css( 'text-align', 'center' )
+			:addClass( 'mw-capiunto-infobox-spanning' )
 	end
 
 	if row.class then
@@ -159,11 +155,7 @@ function render.renderTopRow( html, args )
 		:tag( 'tr' )
 		:tag( 'th' )
 			:attr( 'colspan', 2 )
-			:css( {
-				['text-align'] = 'center',
-				['font-size'] = '125%',
-				['font-weight'] = 'bold'
-			} )
+			:addClass( 'mw-capiunto-infobox-top' )
 			:wikitext( args.top )
 
 	if args.topClass then
@@ -186,7 +178,7 @@ function render.renderBottomRow( html, args )
 		:tag( 'tr' )
 			:tag( 'td' )
 				:attr( 'colspan', '2' )
-				:css( 'text-align', 'center' )
+				:addClass( 'mw-capiunto-infobox-bottom' )
 				:newline()
 				:wikitext( args.bottom )
 
