@@ -11,12 +11,13 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 	die( "Not an entry point.\n" );
 }
 
-$wgExtensionCredits['parserhook']['Capiunto'] = array(
+$wgExtensionCredits['parserhook'] = array(
 	'path' => __FILE__,
 	'name' => 'Capiunto',
 	'author' => 'Marius Hoch',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Capiunto',
 	'descriptionmsg' => 'capiunto-desc',
+	'license-name' => 'GPLv2',
 );
 
 $wgMessagesDirs['Capiunto'] = __DIR__ . '/i18n';
