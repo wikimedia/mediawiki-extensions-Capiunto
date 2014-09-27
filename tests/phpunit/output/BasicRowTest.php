@@ -1,7 +1,6 @@
 <?php
 
 namespace Capiunto\Test;
-use Title;
 
 /**
  * A basic Infobox output test
@@ -19,14 +18,13 @@ class RowInfobox extends \Scribunto_LuaEngineTestBase {
 
 	public function testOutput() {
 		$engine = $this->getEngine();
-		$frame = $engine->getParser()->getPreprocessor()->newFrame();
+		$interpreter = $engine->getInterpreter();
 
-		$title = Title::makeTitle( NS_MODULE, 'RowInfobox' );
-		$this->extraModules[ $title->getPrefixedDBkey() ] = file_get_contents( __DIR__ . '/BasicRowTest.lua' );
+		$lua = file_get_contents( __DIR__ . '/BasicRowTest.lua' );
 
-		$module = $engine->fetchModuleFromParser( $title );
-
-		$box = $module->invoke( 'run', $frame->newChild() );
+		list( $box ) = $interpreter->callFunction(
+			$interpreter->loadString( $lua, 'Basic infobox integration test' )
+		);
 
 		$this->assertValidHtmlSnippet( $box );
 
@@ -42,9 +40,5 @@ class RowInfobox extends \Scribunto_LuaEngineTestBase {
 			"Basic row infobox integration test didn't create expected html"
 		);
 
-		$this->assertTrue(
-			strpos( $box, "<td>\nThis+should+get+processed</td>" ) !== false,
-			'Arguments should be preprocessed'
-		);
 	}
 }

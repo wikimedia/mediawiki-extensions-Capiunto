@@ -35,19 +35,6 @@ local function verifyStringNum( val, name )
 	end
 end
 
-local function preprocess( val )
-	if val == nil then
-		return nil
-	elseif mw.getCurrentFrame() ~= nil then
-		return mw.getCurrentFrame():preprocess( val )
-	else
-		 -- In unit tests there's no frame available, thus we can't
-		 -- preprocess values. That wont happen in production or in the
-		 -- integration tests.
-		return val
-	end
-end
-
 -- Gets an mw.html table representing the infobox
 function methodtable.getHtml( t )
 	local html = mw.html.create( '' )
@@ -82,11 +69,8 @@ function methodtable.addSubHeader( t, text, class, style )
 	t.args.subHeaders = t.args.subHeaders or {}
 	local i = #t.args.subHeaders + 1
 
-	t.args.subHeaders[i] = {
-		text = preprocess( text ),
-		style = style,
-		class = class
-	}
+	t.args.subHeaders[i] =
+		{ text = text, style = style, class = class }
 
 	return t;
 end
@@ -102,10 +86,8 @@ function methodtable.addHeader( t, header, class )
 	t.args.rows = t.args.rows or {}
 	local i = #t.args.rows + 1
 
-	t.args.rows[i] = {
-		header = preprocess( header ),
-		class = class
-	}
+	t.args.rows[i] =
+		{ header = header, class = class }
 
 	return t;
 end
@@ -125,12 +107,8 @@ function methodtable.addRow( t, label, data, class, rowClass )
 	t.args.rows = t.args.rows or {}
 	local i = #t.args.rows + 1
 
-	t.args.rows[i] = {
-		data = preprocess( data ),
-		label = preprocess( label ),
-		rowClass = rowClass,
-		class = class
-	}
+	t.args.rows[i] =
+		{ data = data, label = label, rowClass = rowClass, class = class }
 
 	return t;
 end
@@ -152,9 +130,8 @@ function methodtable.addWikitext( t, text )
 	t.args.rows = t.args.rows or {}
 	local i = #t.args.rows + 1
 
-	t.args.rows[i] = {
-		wikitext = preprocess( text )
-	}
+	t.args.rows[i] =
+		{ wikitext = text }
 
 	return t
 end
@@ -172,11 +149,8 @@ function methodtable.addImage( t, image, caption, class )
 	t.args.images = t.args.images or {}
 	local i = #t.args.images + 1
 
-	t.args.images[i] = {
-		image = preprocess( image ),
-		caption = preprocess( caption ),
-		class = class
-	}
+	t.args.images[i] =
+		{ image = image, caption = caption, class = class }
 
 	return t;
 end
@@ -200,12 +174,12 @@ function infobox.create( options )
 	box.args.isSubbox			= options.isSubbox and true
 
 	-- Title
-	box.args.title			= preprocess( verifyStringNumNil( options.title, 'title' ) )
+	box.args.title			= verifyStringNumNil( options.title, 'title' )
 	box.args.titleClass		= verifyStringNumNil( options.titleClass, 'titleClass' )
 	box.args.titleStyle		= verifyStringNumNil( options.titleStyle, 'titleStyle' )
 
 	-- Top text
-	box.args.top			= preprocess( verifyStringNumNil( options.top, 'top' ) )
+	box.args.top			= verifyStringNumNil( options.top, 'top' )
 	box.args.topClass		= verifyStringNumNil( options.topClass, 'topClass' )
 	box.args.topStyle		= verifyStringNumNil( options.topStyle, 'topStyle' )
 
@@ -215,7 +189,7 @@ function infobox.create( options )
 	box.args.imageClass		= verifyStringNumNil( options.imageClass, 'imageClass' )
 
 	-- Bottom text
-	box.args.bottom			= preprocess( verifyStringNumNil( options.bottom, 'bottom' ) )
+	box.args.bottom			= verifyStringNumNil( options.bottom, 'bottom' )
 	box.args.bottomClass	= verifyStringNumNil( options.bottomClass, 'bottomClass' )
 	box.args.bottomStyle	= verifyStringNumNil( options.bottomStyle, 'bottomStyle' )
 
