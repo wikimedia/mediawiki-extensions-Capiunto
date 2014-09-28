@@ -1,0 +1,8 @@
+{
+	"@metadata": {
+		"authors": [
+			"Okras"
+		]
+	},
+	"capiunto-desc": "Предоставляет базовую функциональность карточек для Scribunto"
+}
