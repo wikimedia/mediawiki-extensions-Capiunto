@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Jonathan rrr"
+			"Jonathan rrr",
+			"Fitoschido"
 		]
 	},
-	"capiunto-desc": "Proporciona la funcionalidad de infobox básica para Scribunto"
+	"capiunto-desc": "Proporciona funcionalidad básica de fichas para Scribunto"
 }
