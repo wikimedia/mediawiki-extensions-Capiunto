@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Lokal Profil"
+			"Lokal Profil",
+			"Jopparn"
 		]
 	},
-	"capiunto-desc": "Ger grundläggande infobox-funktionalitet för Scribunto"
+	"capiunto-desc": "Ger grundläggande faktamall-funktionalitet för Scribunto"
 }
