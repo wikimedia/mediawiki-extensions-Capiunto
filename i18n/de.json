@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Metalhead64"
+			"Metalhead64",
+			"Purodha"
 		]
 	},
-	"capiunto-desc": "Ergänzt eine Basis-Infoboxenfunktionalität für Scribunto"
+	"capiunto-desc": "Erlaubt eine Basis-Infoboxenfunktionalität für Scribunto"
 }
