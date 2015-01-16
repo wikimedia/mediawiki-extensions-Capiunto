@@ -17,7 +17,7 @@ $wgExtensionCredits['other'][] = array(
 	'author' => 'Marius Hoch',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:Capiunto',
 	'descriptionmsg' => 'capiunto-desc',
-	'license-name' => 'GPLv2',
+	'license-name' => 'GPL-2.0+',
 );
 
 $wgMessagesDirs['Capiunto'] = __DIR__ . '/i18n';
