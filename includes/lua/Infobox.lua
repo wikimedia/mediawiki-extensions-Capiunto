@@ -15,6 +15,7 @@
 local infobox = {}
 local metatable = {}
 local methodtable = {}
+local php = mw_interface
 
 metatable.__index = methodtable
 
@@ -52,6 +53,9 @@ function methodtable.getHtml( t )
 	render.renderImages( html, args )
 	render.renderRows( html, args )
 	render.renderBottomRow( html, args )
+
+	-- Add the Scribunto modules needed to properly display the generated HTML
+	php.addResourceLoaderModules()
 
 	return html
 end
