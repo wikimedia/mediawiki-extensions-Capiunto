@@ -30,7 +30,6 @@ $wgAutoloadClasses['Capiunto\Test\InfoboxModuleTest']		= __DIR__ . '/tests/phpun
 $wgHooks['UnitTestsList'][] 				= '\Capiunto\Hooks::registerUnitTests';
 $wgHooks['ScribuntoExternalLibraries'][] 	= '\Capiunto\Hooks::registerScribuntoLibraries';
 $wgHooks['ScribuntoExternalLibraryPaths'][] 	= '\Capiunto\Hooks::registerScribuntoExternalLibraryPaths';
-$wgHooks['BeforePageDisplay'][]				= '\Capiunto\Hooks::onBeforePageDisplay';
 
 $commonModuleInfo = array(
 	'localBasePath' => __DIR__ . '/resources',

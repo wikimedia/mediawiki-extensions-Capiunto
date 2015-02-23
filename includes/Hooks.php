@@ -66,19 +66,4 @@ class Hooks {
 		return true;
 	}
 
-	/**
-	 * Adds css for infoboxes.
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforePageDisplay
-	 *
-	 * @param OutputPage &$out
-	 * @param Skin &$skin
-	 *
-	 * @return bool
-	 */
-	public static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
-		// @FIXME: Find a way to do this conditionally from Lua
-		$out->addModules( 'capiunto.infobox.main' );
-		return true;
-	}
-
 }

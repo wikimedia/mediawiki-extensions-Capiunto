@@ -21,9 +21,17 @@ class LuaLibrary extends Scribunto_LuaLibraryBase {
 	public function register() {
 		return $this->getEngine()->registerInterface(
 			__DIR__ . '/lua/Infobox.lua',
-			array(),
+			array(
+				'addResourceLoaderModules' => array( $this, 'addResourceLoaderModules' )
+			),
 			array()
 		);
 	}
 
+	/**
+	 * Allows Lua to dynamically add the RL modules required for Infoboxes.
+	 */
+	public function addResourceLoaderModules() {
+		$this->getParser()->getOutput()->addModuleStyles( 'capiunto.infobox.main' );
+	}
 }
