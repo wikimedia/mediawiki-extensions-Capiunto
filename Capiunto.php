@@ -38,4 +38,5 @@ $commonModuleInfo = array(
 
 $wgResourceModules['capiunto.infobox.main'] = array(
 	'styles' => 'infobox.css',
+	'position' => 'top'
 ) + $commonModuleInfo;
