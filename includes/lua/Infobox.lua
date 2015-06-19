@@ -209,11 +209,4 @@ end
 
 mw_interface = nil
 
--- Register this module in the "mw.capiunto" global
-mw = mw or {}
-mw.capiunto = mw.capiunto or {}
-mw.capiunto.Infobox = infobox
-
-package.loaded['mw.capiunto.Infobox'] = infobox
-
 return infobox
