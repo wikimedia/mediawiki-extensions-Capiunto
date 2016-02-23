@@ -2,6 +2,9 @@
 
 namespace Capiunto\Test;
 
+use Scribunto_LuaEngine;
+use Scribunto_LuaEngineTestBase;
+
 /**
  * A basic Infobox output test
  *
@@ -9,17 +12,18 @@ namespace Capiunto\Test;
  *
  * @author Marius Hoch < hoo@online.de >
  */
-class BasicInfobox extends \Scribunto_LuaEngineTestBase {
+class BasicTest extends Scribunto_LuaEngineTestBase {
+
 	public function provideLuaData() {
-		// We need to override this to prevent the parent from doing things we don't want/need
 		return array();
 	}
 
 	public function testLua() {
-		$this->assertTrue( true, "Scribunto expects all tests to go through this…" );
+		$this->assertTrue( true );
 	}
 
 	public function testOutput() {
+		/** @var Scribunto_LuaEngine $engine */
 		$engine = $this->getEngine();
 		$interpreter = $engine->getInterpreter();
 
@@ -42,6 +46,6 @@ class BasicInfobox extends \Scribunto_LuaEngineTestBase {
 			$box,
 			"Basic infobox integration test didn't create expected html"
 		);
-
 	}
+
 }
