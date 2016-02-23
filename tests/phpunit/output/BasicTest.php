@@ -9,11 +9,14 @@ namespace Capiunto\Test;
  *
  * @author Marius Hoch < hoo@online.de >
  */
-
 class BasicInfobox extends \Scribunto_LuaEngineTestBase {
 	public function provideLuaData() {
 		// We need to override this to prevent the parent from doing things we don't want/need
 		return array();
+	}
+
+	public function testLua() {
+		$this->assertTrue( true, "Scribunto expects all tests to go through this…" );
 	}
 
 	public function testOutput() {
