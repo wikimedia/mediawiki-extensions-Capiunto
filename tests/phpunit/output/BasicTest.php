@@ -15,10 +15,16 @@ use Scribunto_LuaEngineTestBase;
 class BasicTest extends Scribunto_LuaEngineTestBase {
 
 	public function provideLuaData() {
-		return array();
+		// We need this to override the defaults in Scribunto_LuaEngineTestBase
+		return array(
+			array( 'a', 'b', 'c' )
+		);
 	}
 
-	public function testLua() {
+	/**
+	 * @dataProvider provideLuaData
+	 */
+	public function testLua( $key, $testName, $expected ) {
 		$this->assertTrue( true );
 	}
 
