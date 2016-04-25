@@ -20,7 +20,6 @@ local php = mw_interface
 metatable.__index = methodtable
 
 metatable.__tostring = function( t )
-	local ret = {}
 	return tostring( t:getHtml() )
 end
 

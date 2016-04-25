@@ -1,6 +1,7 @@
 <?php
 
 namespace Capiunto\Test;
+
 use Scribunto_LuaEngineTestBase;
 
 /**
@@ -10,8 +11,8 @@ use Scribunto_LuaEngineTestBase;
  *
  * @author Marius Hoch < hoo@online.de >
  */
-
 class InfoboxRenderModuleTest extends Scribunto_LuaEngineTestBase {
+
 	protected static $moduleName = 'InfoboxRenderModuleTests';
 
 	function getTestModules() {
@@ -19,4 +20,5 @@ class InfoboxRenderModuleTest extends Scribunto_LuaEngineTestBase {
 			'InfoboxRenderModuleTests' => __DIR__ . '/InfoboxRenderTests.lua',
 		);
 	}
+
 }

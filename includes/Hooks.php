@@ -1,10 +1,6 @@
 <?php
-namespace Capiunto;
 
-use OutputPage;
-use Skin;
-use RecursiveIteratorIterator;
-use RecursiveDirectoryIterator;
+namespace Capiunto;
 
 /**
  * File defining the hook handlers for the Capiunto extension.
@@ -14,6 +10,7 @@ use RecursiveDirectoryIterator;
  * @author Marius Hoch < hoo@online.de >
  */
 class Hooks {
+
 	/**
 	 * Hook to add PHPUnit test cases.
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UnitTestsList

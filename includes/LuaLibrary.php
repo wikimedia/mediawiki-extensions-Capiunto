@@ -34,4 +34,5 @@ class LuaLibrary extends Scribunto_LuaLibraryBase {
 	public function addResourceLoaderModules() {
 		$this->getParser()->getOutput()->addModuleStyles( 'capiunto.infobox.main' );
 	}
+
 }
