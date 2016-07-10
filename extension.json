@@ -1,0 +1,34 @@
+{
+	"name": "Capiunto",
+	"author": "Marius Hoch",
+	"url": "https://www.mediawiki.org/wiki/Extension:Capiunto",
+	"descriptionmsg": "capiunto-desc",
+	"license-name": "GPL-2.0+",
+	"type": "other",
+	"MessagesDirs": {
+		"Capiunto": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"Capiunto\\Hooks": "includes/Hooks.php",
+		"Capiunto\\LuaLibrary": "includes/LuaLibrary.php",
+		"Capiunto\\Test\\InfoboxModuleTest": "tests/phpunit/includes/lua/InfoboxTest.php"
+	},
+	"ResourceModules": {
+		"capiunto.infobox.main": {
+			"styles": "infobox.css",
+			"position": "top"
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "resources",
+		"remoteExtPath": "Capiunto/resources"
+	},
+	"Hooks": {
+		"UnitTestsList": "\\Capiunto\\Hooks::registerUnitTests",
+		"ScribuntoExternalLibraries": "\\Capiunto\\Hooks::registerScribuntoLibraries",
+		"ScribuntoExternalLibraryPaths": "\\Capiunto\\Hooks::registerScribuntoExternalLibraryPaths"
+	},
+	"manifest_version": 1
+}
