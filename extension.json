@@ -26,7 +26,6 @@
 		"remoteExtPath": "Capiunto/resources"
 	},
 	"Hooks": {
-		"UnitTestsList": "\\Capiunto\\Hooks::registerUnitTests",
 		"ScribuntoExternalLibraries": "\\Capiunto\\Hooks::registerScribuntoLibraries",
 		"ScribuntoExternalLibraryPaths": "\\Capiunto\\Hooks::registerScribuntoExternalLibraryPaths"
 	},

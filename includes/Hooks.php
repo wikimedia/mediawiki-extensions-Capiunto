@@ -12,20 +12,6 @@ namespace Capiunto;
 class Hooks {
 
 	/**
-	 * Hook to add PHPUnit test cases.
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/UnitTestsList
-	 *
-	 * @param string[] &$paths
-	 *
-	 * @return bool
-	 */
-	public static function registerUnitTests( array &$paths ) {
-		$paths[] = __DIR__ . '/../tests/phpunit/';
-
-		return true;
-	}
-
-	/**
 	 * External Lua library for Scribunto
 	 *
 	 * @param string $engine
