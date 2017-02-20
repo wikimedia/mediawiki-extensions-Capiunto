@@ -41,17 +41,22 @@ class BasicRowTest extends Scribunto_LuaEngineTestBase {
 
 		$this->assertValidHtmlSnippet( $box );
 
-		$matcher = array(
-			'tag' => 'table',
-			'attributes' => array( 'class' => 'mw-capiunto-infobox' ),
-			'descendant' => array( 'tag' => 'caption' )
-		);
-
-		$this->assertTag(
-			$matcher,
+		assertThat(
+			"Basic row infobox integration test didn't create expected html",
 			$box,
-			"Basic row infobox integration test didn't create expected html"
+			is(
+				htmlPiece(
+					havingChild(
+						both(
+							tagMatchingOutline( '<table class="mw-capiunto-infobox"/>' )
+						)->andAlso(
+							havingChild( withTagName( 'caption' ) )
+						)
+					)
+				)
+			)
 		);
+		$this->addToAssertionCount(1); // To avoid risky test warning
 	}
 
 }
