@@ -23,10 +23,10 @@ class Hooks {
 			return true;
 		}
 
-		$extraLibraries['capiunto'] = array(
+		$extraLibraries['capiunto'] = [
 			'class' => '\Capiunto\LuaLibrary',
 			'deferLoad' => true
-		);
+		];
 
 		return true;
 	}
@@ -38,7 +38,10 @@ class Hooks {
 	 * @param array $extraLibraryPaths
 	 * @return bool
 	 */
-	public static function registerScribuntoExternalLibraryPaths( $engine, array &$extraLibraryPaths ) {
+	public static function registerScribuntoExternalLibraryPaths(
+		$engine,
+		array &$extraLibraryPaths
+	) {
 		if ( $engine !== 'lua' ) {
 			return true;
 		}

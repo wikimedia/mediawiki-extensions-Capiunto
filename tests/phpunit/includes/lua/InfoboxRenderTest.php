@@ -16,9 +16,9 @@ class InfoboxRenderModuleTest extends Scribunto_LuaEngineTestBase {
 	protected static $moduleName = 'InfoboxRenderModuleTests';
 
 	function getTestModules() {
-		return parent::getTestModules() + array(
+		return parent::getTestModules() + [
 			'InfoboxRenderModuleTests' => __DIR__ . '/InfoboxRenderTests.lua',
-		);
+		];
 	}
 
 }

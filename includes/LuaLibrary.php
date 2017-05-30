@@ -21,10 +21,10 @@ class LuaLibrary extends Scribunto_LuaLibraryBase {
 	public function register() {
 		return $this->getEngine()->registerInterface(
 			__DIR__ . '/lua/Infobox.lua',
-			array(
-				'addResourceLoaderModules' => array( $this, 'addResourceLoaderModules' )
-			),
-			array()
+			[
+				'addResourceLoaderModules' => [ $this, 'addResourceLoaderModules' ]
+			],
+			[]
 		);
 	}
 

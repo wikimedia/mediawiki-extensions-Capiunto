@@ -16,9 +16,9 @@ class BasicTest extends Scribunto_LuaEngineTestBase {
 
 	public function provideLuaData() {
 		// We need this to override the defaults in Scribunto_LuaEngineTestBase
-		return array(
-			array( 'a', 'b', 'c' )
-		);
+		return [
+			[ 'a', 'b', 'c' ]
+		];
 	}
 
 	/**
@@ -56,7 +56,7 @@ class BasicTest extends Scribunto_LuaEngineTestBase {
 				)
 			)
 		);
-		$this->addToAssertionCount(1); // To avoid risky test warning
+		$this->addToAssertionCount( 1 ); // To avoid risky test warning
 	}
 
 }
