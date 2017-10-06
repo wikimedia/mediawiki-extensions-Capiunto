@@ -15,7 +15,7 @@ class Hooks {
 	 * External Lua library for Scribunto
 	 *
 	 * @param string $engine
-	 * @param array $extraLibraries
+	 * @param array &$extraLibraries
 	 * @return bool
 	 */
 	public static function registerScribuntoLibraries( $engine, array &$extraLibraries ) {
@@ -35,7 +35,7 @@ class Hooks {
 	 * External Lua library paths for Scribunto
 	 *
 	 * @param string $engine
-	 * @param array $extraLibraryPaths
+	 * @param array &$extraLibraryPaths
 	 * @return bool
 	 */
 	public static function registerScribuntoExternalLibraryPaths(
