@@ -24,7 +24,7 @@ class Hooks {
 		}
 
 		$extraLibraries['capiunto'] = [
-			'class' => '\Capiunto\LuaLibrary',
+			'class' => LuaLibrary::class,
 			'deferLoad' => true
 		];
 

@@ -10,6 +10,8 @@ use Scribunto_LuaEngineTestBase;
  * @license GNU GPL v2+
  *
  * @author Marius Hoch < hoo@online.de >
+ *
+ * @covers \Capiunto\LuaLibrary
  */
 class InfoboxModuleTest extends Scribunto_LuaEngineTestBase {
 
