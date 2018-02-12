@@ -17,8 +17,7 @@
 	},
 	"ResourceModules": {
 		"capiunto.infobox.main": {
-			"styles": "infobox.css",
-			"position": "top"
+			"styles": "infobox.css"
 		}
 	},
 	"ResourceFileModulePaths": {
