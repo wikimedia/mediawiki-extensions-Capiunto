@@ -7,7 +7,7 @@ use Scribunto_LuaLibraryBase;
 /**
  * Registers our lua modules to Scribunto
  *
- * @licence GNU GPL v2+
+ * @license GNU GPL v2+
  * @author Marius Hoch < hoo@online.de >
  */
 
