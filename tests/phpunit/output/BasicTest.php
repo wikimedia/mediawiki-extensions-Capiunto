@@ -39,8 +39,6 @@ class BasicTest extends Scribunto_LuaEngineTestBase {
 			$interpreter->loadString( $lua, 'Basic infobox integration test' )
 		);
 
-		$this->assertValidHtmlSnippet( $box );
-
 		assertThat(
 			"Basic infobox integration test didn't create expected html",
 			$box,
