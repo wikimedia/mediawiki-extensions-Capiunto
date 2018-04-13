@@ -8,7 +8,7 @@ use Scribunto_LuaEngineTestBase;
 /**
  * A basic Infobox output test
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  *
  * @author Marius Hoch < hoo@online.de >
  */

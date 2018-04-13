@@ -5,7 +5,7 @@ namespace Capiunto;
 /**
  * File defining the hook handlers for the Capiunto extension.
  *
- * @license GNU GPL v2+
+ * @license GPL-2.0-or-later
  *
  * @author Marius Hoch < hoo@online.de >
  */
