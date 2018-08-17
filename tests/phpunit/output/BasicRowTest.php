@@ -2,6 +2,7 @@
 
 namespace Capiunto\Test;
 
+use HamcrestPHPUnitIntegration;
 use Scribunto_LuaEngine;
 use Scribunto_LuaEngineTestBase;
 
@@ -13,6 +14,7 @@ use Scribunto_LuaEngineTestBase;
  * @author Marius Hoch < hoo@online.de >
  */
 class BasicRowTest extends Scribunto_LuaEngineTestBase {
+	use HamcrestPHPUnitIntegration;
 
 	public function provideLuaData() {
 		// We need this to override the defaults in Scribunto_LuaEngineTestBase
@@ -39,7 +41,7 @@ class BasicRowTest extends Scribunto_LuaEngineTestBase {
 			$interpreter->loadString( $lua, 'Basic infobox integration test' )
 		);
 
-		assertThat(
+		$this->assertThatHamcrest(
 			"Basic row infobox integration test didn't create expected html",
 			$box,
 			is(
@@ -54,7 +56,6 @@ class BasicRowTest extends Scribunto_LuaEngineTestBase {
 				)
 			)
 		);
-		$this->addToAssertionCount( 1 ); // To avoid risky test warning
 	}
 
 }
