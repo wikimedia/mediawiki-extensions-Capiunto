@@ -10,6 +10,7 @@ use Scribunto_LuaEngineTestBase;
  * @license GPL-2.0-or-later
  *
  * @author Marius Hoch < hoo@online.de >
+ * @coversNothing Covers lua code
  */
 class InfoboxRenderModuleTest extends Scribunto_LuaEngineTestBase {
 
