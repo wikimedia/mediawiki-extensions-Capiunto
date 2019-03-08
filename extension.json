@@ -12,8 +12,7 @@
 	},
 	"AutoloadClasses": {
 		"Capiunto\\Hooks": "includes/Hooks.php",
-		"Capiunto\\LuaLibrary": "includes/LuaLibrary.php",
-		"Capiunto\\Test\\InfoboxModuleTest": "tests/phpunit/includes/lua/InfoboxTest.php"
+		"Capiunto\\LuaLibrary": "includes/LuaLibrary.php"
 	},
 	"ResourceModules": {
 		"capiunto.infobox.main": {
