@@ -5,14 +5,16 @@
 	"descriptionmsg": "capiunto-desc",
 	"license-name": "GPL-2.0-or-later",
 	"type": "other",
+	"requires": {
+		"MediaWiki": ">= 1.31.0"
+	},
 	"MessagesDirs": {
 		"Capiunto": [
 			"i18n"
 		]
 	},
-	"AutoloadClasses": {
-		"Capiunto\\Hooks": "includes/Hooks.php",
-		"Capiunto\\LuaLibrary": "includes/LuaLibrary.php"
+	"AutoloadNamespaces": {
+		"Capiunto\\": "includes/"
 	},
 	"ResourceModules": {
 		"capiunto.infobox.main": {
