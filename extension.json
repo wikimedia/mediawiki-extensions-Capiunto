@@ -29,5 +29,5 @@
 		"ScribuntoExternalLibraries": "\\Capiunto\\Hooks::registerScribuntoLibraries",
 		"ScribuntoExternalLibraryPaths": "\\Capiunto\\Hooks::registerScribuntoExternalLibraryPaths"
 	},
-	"manifest_version": 1
+	"manifest_version": 2
 }
