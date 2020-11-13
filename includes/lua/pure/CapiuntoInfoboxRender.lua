@@ -128,6 +128,7 @@ end
 
 -- Renders the title of the infobox into a caption
 --
+-- @param html
 -- @param args
 function render.renderTitle( html, args )
 	if not args.title then return end
