@@ -15,8 +15,10 @@ use Scribunto_LuaEngineTestBase;
  */
 class InfoboxModuleTest extends Scribunto_LuaEngineTestBase {
 
+	/** @inheritDoc */
 	protected static $moduleName = 'InfoboxModuleTests';
 
+	/** @inheritDoc */
 	public function getTestModules() {
 		return parent::getTestModules() + [
 			'InfoboxModuleTests' => __DIR__ . '/InfoboxTests.lua',
