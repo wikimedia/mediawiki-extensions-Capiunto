@@ -32,7 +32,7 @@ class LuaLibrary extends Scribunto_LuaLibraryBase {
 	 * Allows Lua to dynamically add the RL modules required for Infoboxes.
 	 */
 	public function addResourceLoaderModules() {
-		$this->getParser()->getOutput()->addModuleStyles( 'capiunto.infobox.main' );
+		$this->getParser()->getOutput()->addModuleStyles( [ 'capiunto.infobox.main' ] );
 	}
 
 }
