@@ -26,8 +26,13 @@
 		"remoteExtPath": "Capiunto/resources"
 	},
 	"Hooks": {
-		"ScribuntoExternalLibraries": "\\Capiunto\\Hooks::registerScribuntoLibraries",
-		"ScribuntoExternalLibraryPaths": "\\Capiunto\\Hooks::registerScribuntoExternalLibraryPaths"
+		"ScribuntoExternalLibraries": "scribunto",
+		"ScribuntoExternalLibraryPaths": "scribunto"
+	},
+	"HookHandlers": {
+		"scribunto": {
+			"class": "Capiunto\\ScribuntoHooks"
+		}
 	},
 	"manifest_version": 2
 }
