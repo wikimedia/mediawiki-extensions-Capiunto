@@ -38,7 +38,7 @@ class BasicTest extends Scribunto_LuaEngineTestBase {
 
 		$lua = file_get_contents( __DIR__ . '/BasicTest.lua' );
 
-		list( $box ) = $interpreter->callFunction(
+		[ $box ] = $interpreter->callFunction(
 			$interpreter->loadString( $lua, 'Basic infobox integration test' )
 		);
 
