@@ -3,8 +3,8 @@
 namespace Capiunto\Test;
 
 use HamcrestPHPUnitIntegration;
-use Scribunto_LuaEngine;
-use Scribunto_LuaEngineTestBase;
+use MediaWiki\Extension\Scribunto\Engines\LuaCommon\LuaEngine;
+use MediaWiki\Extension\Scribunto\Tests\Engines\LuaCommon\LuaEngineTestBase;
 
 /**
  * A basic Infobox output test
@@ -14,11 +14,11 @@ use Scribunto_LuaEngineTestBase;
  * @author Marius Hoch < hoo@online.de >
  * @coversNothing Covers lua code
  */
-class BasicTest extends Scribunto_LuaEngineTestBase {
+class BasicTest extends LuaEngineTestBase {
 	use HamcrestPHPUnitIntegration;
 
 	public function provideLuaData() {
-		// We need this to override the defaults in Scribunto_LuaEngineTestBase
+		// We need this to override the defaults in LuaEngineTestBase
 		return [
 			[ 'a', 'b', 'c' ]
 		];
@@ -32,7 +32,7 @@ class BasicTest extends Scribunto_LuaEngineTestBase {
 	}
 
 	public function testOutput() {
-		/** @var Scribunto_LuaEngine $engine */
+		/** @var LuaEngine $engine */
 		$engine = $this->getEngine();
 		$interpreter = $engine->getInterpreter();
 

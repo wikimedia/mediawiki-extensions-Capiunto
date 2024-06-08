@@ -2,7 +2,7 @@
 
 namespace Capiunto\Test;
 
-use Scribunto_LuaEngineTestBase;
+use MediaWiki\Extension\Scribunto\Tests\Engines\LuaCommon\LuaEngineTestBase;
 
 /**
  * Tests for mw.capiunto.Infobox._render
@@ -12,7 +12,7 @@ use Scribunto_LuaEngineTestBase;
  * @author Marius Hoch < hoo@online.de >
  * @coversNothing Covers lua code
  */
-class InfoboxRenderModuleTest extends Scribunto_LuaEngineTestBase {
+class InfoboxRenderModuleTest extends LuaEngineTestBase {
 
 	/** @inheritDoc */
 	protected static $moduleName = 'InfoboxRenderModuleTests';

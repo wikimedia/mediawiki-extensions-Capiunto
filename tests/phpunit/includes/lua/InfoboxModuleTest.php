@@ -2,7 +2,7 @@
 
 namespace Capiunto\Test;
 
-use Scribunto_LuaEngineTestBase;
+use MediaWiki\Extension\Scribunto\Tests\Engines\LuaCommon\LuaEngineTestBase;
 
 /**
  * Tests for capiunto
@@ -13,7 +13,7 @@ use Scribunto_LuaEngineTestBase;
  *
  * @covers \Capiunto\LuaLibrary
  */
-class InfoboxModuleTest extends Scribunto_LuaEngineTestBase {
+class InfoboxModuleTest extends LuaEngineTestBase {
 
 	/** @inheritDoc */
 	protected static $moduleName = 'InfoboxModuleTests';
