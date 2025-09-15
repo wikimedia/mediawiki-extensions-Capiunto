@@ -10,7 +10,6 @@ use MediaWiki\Extension\Scribunto\Engines\LuaCommon\LibraryBase;
  * @license GPL-2.0-or-later
  * @author Marius Hoch < hoo@online.de >
  */
-
 class LuaLibrary extends LibraryBase {
 
 	/**
