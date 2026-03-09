@@ -17,7 +17,7 @@ use MediaWiki\Extension\Scribunto\Tests\Engines\LuaCommon\LuaEngineTestBase;
 class BasicRowTest extends LuaEngineTestBase {
 	use HamcrestPHPUnitIntegration;
 
-	public function provideLuaData() {
+	public static function provideLuaData(): array {
 		// We need this to override the defaults in LuaEngineTestBase
 		return [
 			[ 'a', 'b', 'c' ]
