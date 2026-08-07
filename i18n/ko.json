@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Revi"
+			"Revi",
+			"Tensama0415"
 		]
 	},
-	"capiunto-desc": "스크리분토를 위한 기본적인 정보상자 제공"
+	"capiunto-desc": "Scribunto를 위한 기본적인 정보상자 제공"
 }
